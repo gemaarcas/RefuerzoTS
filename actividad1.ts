@@ -1,17 +1,15 @@
 function ejecutar() {
-	// Obtener el elemento del input y de la tabla de multiplicar
-	const inputNumero = document.getElementById(
-		"inputNumero"
-	) as HTMLInputElement;
+	// Obtener el valor del input y convertirlo a tipo number
+	const inputNumero = Number(
+		(document.getElementById("inputNumero") as HTMLInputElement).value
+	);
 	const tablaMultiplicar = document.getElementById(
 		"tablaMultiplicar"
 	) as HTMLUListElement;
 
-	// Obtén el número ingresado por el usuario como tipo number
-	const numero: number = Number(inputNumero.value);
-
 	// Validar si el número ingresado es válido
-	if (isNaN(numero)) {
+	if (isNaN(inputNumero) || inputNumero === 0) {
+		alert("Por favor, introduzca un número válido.");
 		return; // Detener la ejecución de la función si el número no es válido
 	}
 
@@ -21,12 +19,12 @@ function ejecutar() {
 
 	// Generar la tabla de multiplicar y los elementos de lista correspondientes
 	for (let i = 1; i <= 10; i++) {
-		const resultado = numero * i;
+		const resultado = inputNumero * i;
 		resultados.push(resultado); // Agregar el resultado al array de resultados
 
 		// Crear un elemento <li> para cada resultado y agregarlo a la tabla de multiplicar
 		const listItem = document.createElement("li");
-		listItem.textContent = `${numero}x${i}=${resultado}`;
+		listItem.textContent = `${inputNumero}x${i}=${resultado}`;
 		tablaMultiplicar.appendChild(listItem);
 	}
 

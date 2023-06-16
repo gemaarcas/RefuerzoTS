@@ -1,19 +1,18 @@
 "use strict";
 function ejecutar() {
-    const inputNumero = document.getElementById("inputNumero");
+    const inputNumero = Number(document.getElementById("inputNumero").value);
     const tablaMultiplicar = document.getElementById("tablaMultiplicar");
-    const numero = Number(inputNumero.value);
-    if (isNaN(numero)) {
-        alert("Por favor, ingresa un número válido.");
+    if (isNaN(inputNumero) || inputNumero === 0) {
+        alert("Por favor, introduzca un número válido.");
         return;
     }
     tablaMultiplicar.innerHTML = "";
     const resultados = [];
     for (let i = 1; i <= 10; i++) {
-        const resultado = numero * i;
+        const resultado = inputNumero * i;
         resultados.push(resultado);
         const listItem = document.createElement("li");
-        listItem.textContent = `${numero}x${i}=${resultado}`;
+        listItem.textContent = `${inputNumero}x${i}=${resultado}`;
         tablaMultiplicar.appendChild(listItem);
     }
     console.log(resultados);

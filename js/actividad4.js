@@ -24,7 +24,12 @@ class Facturas {
     }
 }
 function calcularFactura() {
-    const importe = parseFloat(document.getElementById("importe").value);
+    const importeInput = document.getElementById("importe");
+    const importe = parseFloat(importeInput.value);
+    if (isNaN(importe) || importe === 0) {
+        alert("Introduzca un importe válido.");
+        return;
+    }
     const factura = new Facturas(importe, 10);
     const bruto = factura.getBruto();
     const iva = factura.getIVA();

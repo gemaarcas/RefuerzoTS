@@ -38,9 +38,14 @@ class Facturas {
 // Función para realizar los cálculos y mostrar los resultados
 function calcularFactura() {
 	// Obtener el valor del importe introducido
-	const importe = parseFloat(
-		(<HTMLInputElement>document.getElementById("importe")).value
-	);
+	const importeInput = <HTMLInputElement>document.getElementById("importe");
+	const importe = parseFloat(importeInput.value);
+
+	// Verificar si el importe es válido
+	if (isNaN(importe) || importe === 0) {
+		alert("Introduzca un importe válido.");
+		return;
+	}
 
 	// Crear una instancia de la clase Facturas
 	const factura = new Facturas(importe, 10); // Aquí puedes modificar el porcentaje de descuento

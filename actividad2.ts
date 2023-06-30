@@ -41,7 +41,7 @@ const main = () => {
 	lengthParagraph.textContent = sayLenghtComparison(first,second);
 	display.appendChild(lengthParagraph);
 	const vowelsParagraph = document.createElement('p');
-	vowelsParagraph.textContent = "El primer texto tiene " + countVowels(first) + ". El segundo texto tiene " + countVowels(second) + ".";
+	vowelsParagraph.textContent = "El primer texto tiene " + countVowels(first) + " vocales. El segundo texto tiene " + countVowels(second) + " vocales.";
 	display.appendChild(vowelsParagraph);
 const extractParagraph = document.createElement('p');
 extractParagraph.textContent = "Los caracteres pares del primer texto son: " + extractEvenCharacters(first);
